@@ -29,6 +29,13 @@ centos-nginx-deployment-6c9595df66-zf2j5   2/2     Running   0          11s   ap
 kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
 Defaulted container "centos-producer" out of: centos-producer, nginx-consumer
 [root@centos-nginx-deployment-6c9595df66-bcq2b /]# 
+
+
+
+
+
+
+
 [root@centos-nginx-deployment-6c9595df66-bcq2b /]# curl -i http://localhost:80
 HTTP/1.1 200 OK
 Server: nginx/1.23.1
