@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: centos-nginx-deployment
+  labels:
+    app: centos-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: centos-nginx
+  template:
+    metadata:
+      labels:
+        app: centos-nginx
+    spec:
+
+     volumes:
+       - name: my-web-content
+         emptyDir: {}
+
+     containers:
+
+       - name: centos-producer
+         image: centos:latest
+         command: ["/bin/bash"]
+         args: [ "-c" , "while true ; do echo 'test website' > /centos-pod-data/index.html ; sleep 10 ; done" ]
+         ports:
+           - containerPort: 1234
+         volumeMounts:
+           - name: my-web-content
+             mountPath: /centos-pod-data 
+
+       - name: nginx-consumer
+         image: nginx:latest
+         ports:
+           - containerPort: 80
+         volumeMounts: 
+           - name: my-web-content
+             mountPath: /usr/share/nginx/html
