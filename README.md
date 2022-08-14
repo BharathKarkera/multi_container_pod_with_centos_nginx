@@ -26,6 +26,8 @@ centos-nginx-deployment-6c9595df66-zf2j5   2/2     Running   0          11s   ap
 
 
 12:53PM @Bharath ~ kubectl exec -i -t centos-nginx-deployment-6c9595df66-bcq2b bash
+
+
 kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
 Defaulted container "centos-producer" out of: centos-producer, nginx-consumer
 [root@centos-nginx-deployment-6c9595df66-bcq2b /]# 
